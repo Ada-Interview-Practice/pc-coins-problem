@@ -55,3 +55,41 @@ Produces
 ```py
 0
 ```
+
+## Notes for the Interviewer
+
+### Clarifying Questions
+
+#### Q: What should I return if the coins array is empty?
+
+A: Assume the coins array is not empty.
+
+#### Q: How do I handle negative amounts?
+
+A: Assume all amounts will be 0 or greater.
+
+#### Q: What do I return if the coins cannot make up the amount?
+
+A: Return -1 if you cannot make change with the coins provided.
+
+### Hints
+
+- If your candidate struggles with an initial algorithm, encourage them to walk through an example and describe how they would do it using only pen and paper and a very small example like `amount = 3` and `coins = [1, 2]`. Encourage them not to jump right to the result of two coins (1 + 2 = 3) but to also think about how they look for other coin combinations (e.g. 1 + 1 + 1 = 3).
+
+- Another hint is that this problem can be solved using recursion, then further optimized using dynamic programming. Encourage them to approach the problem recursively, then go back and refactor their solution with dynamic programming.
+
+- Encourage them to take a look at the recursive calls being made. Remind them that creating a memo (dictionary) with the amount being a key and the value of that key being the number of coins to make change with that amount.
+
+- Use of the `min` function can be used to determine the minimum value between two integers. For example, `min(5, 2)` will return the value 2. We can use the `min` function to consistently ensure the amount in the memo is the minimum amount of coins we can use.
+
+- Remind them they can use collections.defaultdict to create the memo. This will eliminate the need to handle the case when adding to a dictionary and the key has not yet been explicitly added to the dictionary. (https://docs.python.org/3/library/collections.html#collections.defaultdict)
+
+- If the interviewee does not want to attempt this problem using recursion or dynamic programming, that's totally ok! It can also be solved using iteration and keeping track of the biggest coin that can be subtracted from the amount until it reaches 0 or (in the event that change cannot be made from the provided coins) a negative amount. However, there are some coin values for which this approach will _not_ produce the correct result. For example, if the coins array is `[1, 15, 25]` and the amount is `30`, the correct answer is `2` (15 + 15), but the iterative approach will return `6` (25 + 1 + 1 + 1 + 1 + 1).
+
+## Optional Bonus At-Home Challenges
+
+To be attempted after completing the interview.
+
+- What are the time/space complexities of the sample solution?
+
+- If you wrote a recursive solution without dynamic programming, try incorporating dynamic programming into your approach.
