@@ -16,8 +16,12 @@ def coin_change_helper(memo, coins, amount):
     for coin in coins:
         # if the coin can be used
         if amount - coin >= 0:
-            # set the memo for the amount with the minimum value between what is currently stored in the memo for the amount and the recursive calculation of the amount of ways to make change if we were to use the coin
-            memo[amount] = min(memo[amount], coin_change_helper(memo, coins, amount - coin) + 1)
+            min_change_for_coin = coin_change_helper(memo, coins, amount - coin) + 1
+            # set the memo for the amount by choosing the minimum value 
+            # between what is currently stored in the memo for the amount 
+            # and the recursive calculation of the amount of ways 
+            # to make change if we were to use the coin
+            memo[amount] = min(memo[amount], min_change_for_coin)
 
     # return the number of ways to make change for this amount
     return memo[amount]
@@ -36,7 +40,7 @@ def coin_change(amount, coins):
 ### Test Case #1
 
 amount = 11
-coins = [1,2,5]
+coins = [5, 1, 2]
 
 assert coin_change(amount, coins) == 3
 

@@ -72,6 +72,10 @@ A: Assume all amounts will be 0 or greater.
 
 A: Return -1 if you cannot make change with the coins provided.
 
+#### Q: Will the list of coin values always be given in sorted order?
+
+A: Assume the coins array could be unsorted. 
+
 ### Hints
 
 - If your candidate struggles with an initial algorithm, encourage them to walk through an example and describe how they would do it using only pen and paper and a very small example like `amount = 3` and `coins = [1, 2]`. Encourage them not to jump right to the result of two coins (1 + 2 = 3) but to also think about how they look for other coin combinations (e.g. 1 + 1 + 1 = 3).
