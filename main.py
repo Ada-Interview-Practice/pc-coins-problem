@@ -40,7 +40,7 @@ def coin_change(amount, coins):
 ### Test Case #1
 
 amount = 11
-coins = [1, 2, 5]
+coins = [1,2,5]
 
 assert coin_change(amount, coins) == 3
 
